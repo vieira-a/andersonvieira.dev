@@ -7,8 +7,8 @@ export default function Navbar() {
     <article className='flex justify-between flex-row py-6 align-middle'>
       <div className="my-auto">
         <Image
-          src="/logo.png"
-          width={100}
+          src="/logo.svg"
+          width={120}
           height={100}
           alt="Anderson Vieira Logo"
         />
