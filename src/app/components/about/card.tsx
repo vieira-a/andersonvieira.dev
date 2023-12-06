@@ -20,13 +20,13 @@ export default function AboutCard({ children, title, content }: AboutCardProps) 
   return (
     <div className='py-4 px-6 md:px-6 md:py-8 bg-gray-dark rounded-xl'>
       <div className='flex justify-between gap-2'>
-        <h3 className='md:text-2xl'>{title}</h3>
+        <h3 className='text-lg md:text-2xl'>{title}</h3>
         <CardButton onClick={handleCardContent}>
           <ChevronDownIcon width={24}/>
         </CardButton>
       </div>
       <div className={`${!showCardContent ? 'hidden' : 'visible'}`} onClick={handleCardContent}>
-        <p className='mt-6 md:text-xl'>{content}</p>
+        <p className='mt-6 text-base md:text-2xl'>{content}</p>
       </div>
     </div>
   ) 
