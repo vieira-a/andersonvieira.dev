@@ -4,6 +4,8 @@ import Navbar from './ui/navbar'
 import About from './components/about/about'
 import AboutCard from './components/about/card'
 import { what, how } from '@/data/about'
+import Skills from './components/skills/skills'
+import SkillsCard from './components/skills/skills-card'
 
 export default function Home() {
   return (
@@ -33,6 +35,12 @@ export default function Home() {
               ))}
             </About>
           </section>
+            <Skills
+              title='Habilidades'
+              subtitle='Quais as principais tecnologias que utilizo no meu dia a dia'
+            >
+              <SkillsCard />
+            </Skills> 
         </main>
     </>
   )
