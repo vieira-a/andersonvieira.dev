@@ -20,7 +20,7 @@ export default function AboutCard({ children, title, content }: AboutCardProps) 
   return (
     <div className='py-4 px-6 bg-gray-dark rounded-xl'>
       <div className='flex justify-between gap-2'>
-        <h3 className="text-xl">{title}</h3>
+        <h3>{title}</h3>
         <CardButton onClick={handleCardContent}>
           <ChevronDownIcon width={24}/>
         </CardButton>

@@ -1,7 +1,7 @@
 export const what = [
   {
     id: 1,
-    title: 'Desenvolvo aplicações de ponta a ponta',
+    title: 'Desenvolvo aplicações backend e frontend, de ponta a ponta',
     content: 
     `
     Da concepção ao lançamento, cada etapa do desenvolvimento é cuidadosamente moldada com as melhores práticas. 
@@ -77,7 +77,7 @@ export const how = [
   },
   {
     id: 4,
-    title: 'Sou calmo sob pressão e tomo decisões racionais',
+    title: 'Mantenho a calma sob pressão e tomo decisões racionais',
     content: 
     `
     Em situações desafiadoras, mantenho a serenidade e adoto uma abordagem baseada na racionalidade. 
