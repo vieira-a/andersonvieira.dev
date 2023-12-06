@@ -1,4 +1,5 @@
-import Image from 'next/image'
+'use client';
+
 import Hero from './components/hero/hero'
 import Navbar from './ui/navbar'
 import About from './components/about/about'
@@ -10,34 +11,65 @@ import Projects from './components/projects/projects'
 import DownloadResume from './components/download-resume/download-resume'
 import Contact from './components/contact/contact'
 import Footer from './components/footer/footer'
+import { motion } from 'framer-motion'
 
 export default function Home() {
+  
   return (
     <>
-      <section className='bg-gradient-to-b from-purple-primary from-38% to-gray-primary to-85%'>
-        <nav>
-          <Navbar />
-        </nav>
-        <Hero />
-      </section>
+      <div className='relative'>
+        <section className='bg-gradient-to-b from-purple-primary from-38% to-gray-primary to-85% relative'>
+          <motion.div
+            initial={{ y: -300, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 300, opacity: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 20,
+            }}>
+            <Navbar />
+            <Hero />
+          </motion.div>
+        </section>
         <main>
           <section>
-            <About 
-              title='o que faço' 
-              subtitle='Como entrego valor através de soluções com alto padrão de qualidade'
-            >
-              {what && what.map((item) => (
-                <AboutCard key={item.id} title={item.title} content={item.content} />
-              ))}
-            </About>
-            <About 
-              title='como faço' 
-              subtitle='Minhas características contribuem para a realização de projetos de sucesso'
-            >
-              {how && how.map((item) => (
-                <AboutCard key={item.id} title={item.title} content={item.content} />
-              ))}
-            </About>
+            <motion.div
+              initial={{ x: 300, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: 300, opacity: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}>
+                <About 
+                  title='o que faço' 
+                  subtitle='Como entrego valor através de soluções com alto padrão de qualidade'
+                >
+                  {what && what.map((item) => (
+                    <AboutCard key={item.id} title={item.title} content={item.content} />
+                  ))}
+                </About>
+              </motion.div>
+              <motion.div
+              initial={{ x: -300, opacity: 0 }}
+              animate={{ x: 0, opacity: 1, transitionDuration: '300' }}
+              exit={{ x: 300, opacity: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}>
+                <About 
+                  title='como faço' 
+                  subtitle='Minhas características contribuem para a realização de projetos de sucesso'
+                >
+                  {how && how.map((item) => (
+                    <AboutCard key={item.id} title={item.title} content={item.content} />
+                  ))}
+                </About>
+              </motion.div>
           </section>
             <Skills
               title='Habilidades'
@@ -59,6 +91,7 @@ export default function Home() {
             <Contact />
             <Footer />
         </main>
+      </div>
     </>
   )
 }

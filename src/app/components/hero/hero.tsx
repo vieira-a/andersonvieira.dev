@@ -3,7 +3,7 @@ import { ArrowRightIcon } from "@heroicons/react/20/solid"
 
 export default function Hero() {
   return (
-    <article className='py-16'>
+    <article className='py-6' id='hero'>
       <div>
         <h1 className='text-5xl font-thin'>Desenvolvo</h1>
         <h3 className='text-3xl text-purple-light font-thin'>soluções web</h3>

@@ -11,22 +11,22 @@ export const skills = [
   },
   {
     id: 3,
-    description: 'PostgreSQL',
+    description: 'React',
     experience_time: '2 anos'
   },
   {
     id: 4,
-    description: 'MongoDB',
+    description: 'PostgreSQL',
     experience_time: '2 anos'
   },
   {
     id: 5,
-    description: 'TypeORM',
+    description: 'MongoDB',
     experience_time: '2 anos'
   },
   {
     id: 6,
-    description: 'React.js',
+    description: 'TypeORM',
     experience_time: '2 anos'
   }
 ]

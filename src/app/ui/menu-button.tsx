@@ -1,10 +1,13 @@
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  onClick?: () => void;
 }
 
-export default function MenuButton({children}: ButtonProps) {
+export default function MenuButton({children, onClick}: ButtonProps) {
   return (  
-    <button className='hover:opacity-80'>
+    <button 
+      onClick={onClick}
+      className='hover:opacity-80'>
       {children}
     </button>
   )

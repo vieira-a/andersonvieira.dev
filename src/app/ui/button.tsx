@@ -10,7 +10,7 @@ export default function Button({ children, theme }: ButtonProps ) {
       {children}
     </button>
     ) : (
-      <button className='flex justify-center align-middle bg-gray-950 p-2 w-full rounded-3xl text-purple-secondary font-normal hover:opacity-80 transition-opacity'>
+      <button className='flex justify-center align-middle bg-zinc-900 p-2 w-full rounded-3xl text-purple-secondary font-normal hover:opacity-80 transition-opacity'>
       {children}
     </button>
     )
