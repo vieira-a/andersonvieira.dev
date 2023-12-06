@@ -12,7 +12,7 @@ export default function Navbar() {
 
   return (
     <>
-    <nav className='flex justify-between flex-row py-6 align-middle relative'>
+    <nav className='flex justify-between flex-row py-6 align-middle relative md:px-24'>
       <div className="my-auto">
         <Image
           src="/logo.svg"

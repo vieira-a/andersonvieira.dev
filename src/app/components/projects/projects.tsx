@@ -10,9 +10,9 @@ interface ProjectsProps {
 
 export default function Projects ({ children, title, subtitle }: ProjectsProps) {
   return (
-    <article className='flex flex-col gap-6 py-6 bg-purple-secondary px-6' id='projects'>
-      <p className='font-light uppercase text-xl text-gray-dark'>{title}</p>
-      <h2 className='font-light text-2xl mb-3 text-gray-dark'>{subtitle}</h2>
+    <article className='flex flex-col gap-6 py-6 bg-purple-secondary px-6 md:px-24 md:py-12' id='projects'>
+      <p className='font-light uppercase text-xl md:text-2xl text-gray-dark'>{title}</p>
+      <h2 className='font-light text-2xl md:text-4xl mb-3 text-gray-dark'>{subtitle}</h2>
       <Button theme='gray'>
         <Link className='flex gap-2' href={'https://www.github.com/vieira-a'}>
           Confira o meu repositório
