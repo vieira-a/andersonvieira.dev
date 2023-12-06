@@ -1,10 +1,18 @@
-import Image from "next/image"
+'use client';
+
+import Image from 'next/image'
+import { useState } from 'react'
 import { EllipsisHorizontalCircleIcon } from "@heroicons/react/20/solid"
-import MenuButton from "./menu-button"
+import MenuButton from './menu-button';
+import Menu from '../components/menu/menu';
+import { motion } from 'framer-motion'
 
 export default function Navbar() {
+  const [openMenu, setOpenMenu] = useState<boolean>(false)
+
   return (
-    <article className='flex justify-between flex-row py-6 align-middle'>
+    <>
+    <nav className='flex justify-between flex-row py-6 align-middle relative'>
       <div className="my-auto">
         <Image
           src="/logo.svg"
@@ -13,9 +21,11 @@ export default function Navbar() {
           alt="Anderson Vieira Logo"
         />
       </div>
-      <MenuButton>
+      <MenuButton onClick={() => setOpenMenu(true)}>
         <EllipsisHorizontalCircleIcon width={32} className="fill-none stroke-purple-secondary"/>
       </MenuButton>
-    </article >
+    </nav >
+      <Menu open={openMenu} setOpen={setOpenMenu} />
+    </>
   )
 }
