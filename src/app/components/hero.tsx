@@ -5,8 +5,8 @@ export default function Hero() {
   return (
     <article className='py-16'>
       <div>
-        <h1 className='text-5xl'>Desenvolvo</h1>
-        <h3 className='text-3xl text-purple-light'>Soluções web</h3>
+        <h1 className='text-5xl font-thin'>Desenvolvo</h1>
+        <h3 className='text-3xl text-purple-light font-thin'>soluções web</h3>
         <p className='py-6'>
         Crio soluções avançadas e escaláveis, seguindo as melhores práticas de desenvolvimento de software
         </p>
