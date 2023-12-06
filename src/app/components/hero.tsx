@@ -8,8 +8,7 @@ export default function Hero() {
         <h1 className='text-5xl'>Desenvolvo</h1>
         <h3 className='text-3xl text-purple-light'>Soluções web</h3>
         <p className='py-6'>
-        Ajudo empresas criando soluções avançadas e escaláveis, 
-        seguindo as melhores práticas de desenvolvimento de software
+        Crio soluções avançadas e escaláveis, seguindo as melhores práticas de desenvolvimento de software
         </p>
       </div>
       <div className='py-16'>
