@@ -14,7 +14,7 @@ interface AuthorCardProps {
 export default function AuthorCard({ lang, t }: AuthorCardProps) {
   return (
     <div className="my-16 p-8 bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl border border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center sm:items-start gap-6">
-      <div className="relative w-24 h-24 shrink-0 overflow-hidden rounded-full border-2 border-white dark:border-zinc-800 shadow-sm">
+      <div className="relative w-24 h-24 shrink-0 overflow-hidden rounded-full border-2 border-white dark:border-zinc-800 shadow-sm bg-zinc-100 dark:bg-zinc-800">
         <Image
           src="/profile.jpg"
           alt="Anderson Vieira"

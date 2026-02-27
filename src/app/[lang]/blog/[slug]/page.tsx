@@ -99,7 +99,7 @@ export default async function PostPage({ params }: PostPageProps) {
           )}
         </time>
         {post.image && (
-          <div className="mb-10 overflow-hidden rounded-md border border-zinc-200 dark:border-zinc-800 relative aspect-video">
+          <div className="mb-10 overflow-hidden rounded-md border border-zinc-200 dark:border-zinc-800 relative aspect-video bg-zinc-100 dark:bg-zinc-900">
             <Image
               src={post.image}
               alt={post.title}
