@@ -700,8 +700,8 @@ export default async function AboutPage({
         <div className="max-w-2xl">
           <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 font-normal">
             {isPt
-              ? "Atualmente, meu foco está na propriedade arquitetural e na profundidade das decisões técnicas. Acredito que o papel de um engenheiro sênior vai além de escrever código eficiente; trata-se de garantir que o sistema possa evoluir sem se tornar um fardo para o negócio. Estou particularmente interessado em como a observabilidade e a mensageria podem ser usadas para construir sistemas cada vez mais inteligentes e autônomos."
-              : "Currently, my focus is on architectural ownership and technical decision depth. I believe the role of a senior engineer goes beyond writing efficient code; it's about ensuring the system can evolve without becoming a burden to the business. I am particularly interested in how observability and messaging can be used to build increasingly intelligent and autonomous systems."}
+              ? "Atualmente, meu foco está na propriedade arquitetural e na profundidade das decisões técnicas. Acredito que o papel de um engenheiro de software vai além de escrever código eficiente; trata-se de garantir que o sistema possa evoluir sem se tornar um fardo para o negócio. Estou particularmente interessado em como a observabilidade e a mensageria podem ser usadas para construir sistemas cada vez mais inteligentes e autônomos."
+              : "Currently, my focus is on architectural ownership and technical decision depth. I believe the role of a software engineer goes beyond writing efficient code; it's about ensuring the system can evolve without becoming a burden to the business. I am particularly interested in how observability and messaging can be used to build increasingly intelligent and autonomous systems."}
           </p>
           <p className="mt-6 text-sm text-zinc-500 dark:text-zinc-400 font-normal">
             {isPt ? (

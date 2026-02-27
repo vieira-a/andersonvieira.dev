@@ -15,11 +15,11 @@ export async function generateStaticParams() {
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Senior Backend Architect",
-    default: "Senior Backend Architect",
+    template: "%s | Software Developer",
+    default: "Software Developer",
   },
   description:
-    "Engineering maturity, simplicity, and architectural pragmatism.",
+    "Software development focused on building and evolving systems in production.",
   metadataBase: new URL("https://andersonvieira-dev.vercel.app"),
 };
 
