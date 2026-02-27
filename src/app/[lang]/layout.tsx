@@ -116,7 +116,7 @@ export default async function RootLayout({
 
         <footer className="py-12 mt-auto border-t border-zinc-200 dark:border-zinc-800 text-xs font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 print:hidden">
           <div className="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="flex items-center gap-1.5">
+            <p className="flex flex-wrap items-center justify-center sm:justify-start gap-x-1.5 gap-y-2 text-center sm:text-left">
               <span>
                 © {new Date().getFullYear()} — {t.footer.builtWith}
               </span>
