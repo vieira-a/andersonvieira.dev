@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Minimal Static Tech Blog
 
-## Getting Started
+A production-ready, minimalist technical blog built with Next.js (App Router) focusing on software architecture and backend engineering. This project is strictly static (SSG), requiring no runtime server login or databases.
 
-First, run the development server:
+## 🏗 Architecture Decisions
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 1. Fully Static (SSG)
+
+The project uses `output: 'export'` in `next.config.mjs`. This converts the entire application into static HTML/CSS/JS files.
+
+- **Why?** Reliability, speed, and cost-effectiveness. A static site can be hosted on any CDN (Vercel, GitHub Pages, S3) with zero operational overhead.
+
+### 2. Local Markdown Content
+
+Posts are stored as `.md` files in the `/content` folder.
+
+- **Why?** Version control acts as the CMS. This avoids the complexity of external databases or headless CMS providers, keeping the engineering workflow simple.
+
+### 3. Unified Markdown Pipeline
+
+Uses `unified`, `remark`, and `rehype` for markdown processing.
+
+- **Why?** It's modular and standard. `rehype-pretty-code` (via Shiki) provides build-time syntax highlighting, meaning no heavy highlighting JS is shipped to the user's browser.
+
+### 4. Zero-Runtime Componentry
+
+No complex UI libraries (Radix, Framer Motion) or authentication providers.
+
+- **Why?** Reflects senior-level maturity. Intentionality over over-engineering. Performance is optimized by shipping as little JS as possible.
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.x or later
+- npm
+
+### Installation
+
+1. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+3. Open [http://localhost:3000](http://localhost:3000) to see your blog.
+
+### Adding New Posts
+
+Simply create a new `.md` file in the `/content` directory with the following frontmatter:
+
+```markdown
+---
+title: "Your Post Title"
+date: "YYYY-MM-DD"
+description: "Brief summary of the post"
+tags: ["tag1", "tag2"]
+---
+
+Your content here...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Deployment (Vercel)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Since this is a static site (`output: 'export'`), deployment is straightforward on Vercel:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Push your code to a GitHub/GitLab/Bitbucket repository.
+2. Import the project into Vercel.
+3. Vercel will automatically detect Next.js.
+4. The build command will be `next build`.
+5. The output directory should be `out`.
 
-## Learn More
+**Important Note:** Because we use `output: 'export'`, Vercel's standard Image Optimization will not work unless you use a custom loader. This project is configured with `images: { unoptimized: true }` to maintain absolute portability and zero external dependencies.
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠 Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Framework:** Next.js 15 (App Router)
+- **Styling:** TailwindCSS 4
+- **Markdown:** unified, gray-matter, remark-parse
+- **Syntax Highlighting:** rehype-pretty-code, shiki
+- **SEO:** Next.js Metadata API, automated sitemap, robots.txt, and RSS (feed.xml)

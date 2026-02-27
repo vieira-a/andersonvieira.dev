@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  ::selection {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .dark ::selection {
+    background-color: #fff;
+    color: #000;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Pure clean background for light mode */
+    background-color: theme("colors.white");
+    color: theme("colors.zinc.900");
+  }
+
+  .dark body {
+    /* Pure structural black for dark mode */
+    background-color: theme("colors.zinc.950");
+    color: theme("colors.zinc.100");
+  }
+}
+
+/* Typography Refinement: Tightening vertical rhythm */
+.prose p {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+}
+
+.prose h2,
+.prose h3 {
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.prose ul,
+.prose ol {
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.prose li {
+  margin-top: 0.4rem !important;
+  margin-bottom: 0.4rem !important;
+}
