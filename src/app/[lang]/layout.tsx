@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "@/app/globals.css";
 import Link from "next/link";
 import Image from "next/image";
+import Script from "next/script";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
@@ -58,6 +59,18 @@ export default async function RootLayout({
       <body
         className={`${inter.variable} antialiased font-sans bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 min-h-screen flex flex-col selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900`}
       >
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-G3P8B315P6"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-G3P8B315P6');
+          `}
+        </Script>
         <header className="py-6 border-b border-zinc-200 dark:border-zinc-800 print:hidden">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 flex justify-between items-center">
             <Link
