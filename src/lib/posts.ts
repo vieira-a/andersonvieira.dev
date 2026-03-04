@@ -34,15 +34,15 @@ export function getSortedPostsData(locale: Locale): PostMetadata[] {
   const allPostsData = fileNames
     .filter((fileName) => fileName.endsWith(".md"))
     .map((fileName) => {
-      const slug = fileName.replace(/\.md$/, "");
-
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
 
       const matterResult = matter(fileContents);
+      const defaultSlug = fileName.replace(/\.md$/, "");
+      const finalSlug = matterResult.data.slug || defaultSlug;
 
       return {
-        slug,
+        slug: finalSlug,
         title: matterResult.data.title,
         date: matterResult.data.date,
         description: matterResult.data.description,
@@ -60,8 +60,6 @@ export function getSortedPostsData(locale: Locale): PostMetadata[] {
   });
 }
 
-// For RSS generation we might want all posts irrespective of locale, or per locale.
-// We'll export a helper just for that.
 export function getAllPostsAcrossLocales(): (PostMetadata & {
   locale: Locale;
 })[] {
@@ -82,19 +80,44 @@ export function getAllPostSlugs(locale: Locale) {
   return fileNames
     .filter((fileName) => fileName.endsWith(".md"))
     .map((fileName) => {
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, "utf8");
+      const matterResult = matter(fileContents);
+      const defaultSlug = fileName.replace(/\.md$/, "");
       return {
-        slug: fileName.replace(/\.md$/, ""),
+        slug: (matterResult.data.slug || defaultSlug).toString(),
       };
-    });
+    })
+    .filter((post) => post.slug && post.slug.trim() !== "");
 }
 
 export async function getPostData(slug: string, locale: Locale): Promise<Post> {
-  const fullPath = path.join(basePostsDirectory, locale, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const postsDirectory = path.join(basePostsDirectory, locale);
+  const fileNames = fs.readdirSync(postsDirectory);
 
+  let targetFileName = `${slug}.md`;
+
+  for (const fileName of fileNames) {
+    if (!fileName.endsWith(".md")) continue;
+
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const matterResult = matter(fileContents);
+
+    if (matterResult.data.slug === slug || fileName === `${slug}.md`) {
+      targetFileName = fileName;
+      break;
+    }
+  }
+
+  const fullPath = path.join(basePostsDirectory, locale, targetFileName);
+  if (!fs.existsSync(fullPath)) {
+    throw new Error(`File not found for slug: ${slug}`);
+  }
+
+  const fileContents = fs.readFileSync(fullPath, "utf8");
   const matterResult = matter(fileContents);
 
-  // Build the markdown processing pipeline
   const processPipeline = unified()
     .use(remarkParse)
     .use(remarkRehype)
