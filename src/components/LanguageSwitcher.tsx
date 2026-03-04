@@ -10,9 +10,12 @@ export default function LanguageSwitcher() {
   return (
     <div className="flex items-center gap-0 border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 rounded-md overflow-hidden p-0.5">
       {locales.map((locale) => {
-        // Simple client-side replacement since we know the structure is always /[lang]/...
         const active = pathname?.startsWith(`/${locale}`);
-        const newPath = pathname.replace(/^\/[a-z]{2}/, `/${locale}`);
+
+        let newPath = pathname.replace(/^\/[a-z]{2}/, `/${locale}`);
+        if (pathname.split("/").length > 3 && pathname.includes("/blog/")) {
+          newPath = `/${locale}/blog`;
+        }
 
         return (
           <Link

@@ -10,6 +10,8 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return locales.map((locale) => ({ lang: locale }));
 }

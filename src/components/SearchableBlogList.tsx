@@ -77,6 +77,7 @@ export default function SearchableBlogList({
                     year: "numeric",
                     month: "long",
                     day: "numeric",
+                    timeZone: "UTC",
                   },
                 )}
               </time>

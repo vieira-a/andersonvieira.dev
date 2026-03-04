@@ -14,6 +14,8 @@ interface PostPageProps {
   }>;
 }
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const params: { slug: string; lang: Locale }[] = [];
 
@@ -95,6 +97,7 @@ export default async function PostPage({ params }: PostPageProps) {
               year: "numeric",
               month: "long",
               day: "numeric",
+              timeZone: "UTC",
             },
           )}
         </time>
