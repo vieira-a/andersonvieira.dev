@@ -249,6 +249,8 @@ It reduces the impact of change.
 
 If changing stock requires changing orders, if changing orders requires changing stock, you have visual organization — but you don't have structural isolation.
 
+## Conclusion
+
 A monolith can be structurally healthy. And a set of microservices can be structurally chaotic.
 
 The difference is not in the number of processes. It is in the explicit control of dependencies.

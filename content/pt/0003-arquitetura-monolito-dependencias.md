@@ -249,6 +249,8 @@ Ela reduz o impacto de mudança.
 
 Se alterar estoque exige alterar pedidos, se alterar pedidos exige alterar estoque, você tem organização visual — mas não tem isolamento estrutural.
 
+## Conclusão
+
 Um monólito pode ser estruturalmente saudável. E um conjunto de microservices pode ser estruturalmente caótico.
 
 A diferença não está na quantidade de processos. Está no controle explícito das dependências.
